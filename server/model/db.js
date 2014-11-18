@@ -47,14 +47,17 @@ process.on('SIGINT', function() {
 });
 
 
-/** User SCHEMA **/
-/** Replace this Schema with your own(s) **/
-var usersSchema = new mongoose.Schema({
-  userName : String,
-  email: {type: String, unique: true},
-  pw: String,
-  created: { type: Date, default: new Date() }
-});
+var mongoose = require('mongoose');
 
-mongoose.model( 'User', usersSchema,"testusers" );
+var wikiSchema = mongoose.Schema({
+      title: { type: String, index: true},
+      url: { type: String},
+      abstract: { type: String},
+      categories: {type: [{type: String}], index: true},
+      links: {type: [{type: String}], index: true},
+      headings: [{heading: {type: String}, position: {type: Number}}]},
+    { collection: 'wiki' }
+);
+
+exports.WikiModel = mongoose.model('wiki', wikiSchema, "wiki");
 
