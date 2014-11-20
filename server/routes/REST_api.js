@@ -22,16 +22,26 @@ router.get('/user', function(req, res) {
   });
 });
 
-router.get('/wiki/title/:title', function(req, res) {
+router.get('/title/:title', function(req, res) {
+  if(typeof global.mongo_error !== "undefined"){
+    res.status(500);
+    res.end("Error: "+global.mongo_error+" To see a list of users here, make sure you have started the database and set up some test users (see model-->db.js for instructions)");
+    return;
+  }
   wikis.getWiki(req.params.title, function (err, wiki) {
     if (err) {
       return err;
     }
-    res.render('wikis', {wikis: wiki});
+    res.end(JSON.stringify(wiki));
   })
 });
 
-router.get('/wiki/category/:category', function(req, res) {
+router.get('category/:category', function(req, res) {
+  if(typeof global.mongo_error !== "undefined"){
+    res.status(500);
+    res.end("Error: "+global.mongo_error);
+    return;
+  }
   wikis.getWikisWithCategory(req.params.category, function (err, wikis) {
     if (err) {
       return err;
@@ -41,20 +51,44 @@ router.get('/wiki/category/:category', function(req, res) {
 });
 
 router.get('/categories', function(req, res) {
+  if(typeof global.mongo_error !== "undefined"){
+    res.status(500);
+    res.end("Error: "+global.mongo_error);
+    return;
+  }
   wikis.getCategories(function (err, categories) {
     if (err) {
       return err;
     }
-    res.render('categories', {categories: categories});
+    res.end(JSON.stringify(categories));
   })
 });
 
 router.get('/search/:searchString', function(req, res) {
+  if(typeof global.mongo_error !== "undefined"){
+    res.status(500);
+    res.end("Error: "+global.mongo_error);
+    return;
+  }
   wikis.findWiki(req.params.searchString, function (err, titles) {
     if (err) {
       return err;
     }
     res.end(JSON.stringify(titles));
+  })
+});
+
+router.get('/allWiki', function(req, res) {
+  if(typeof global.mongo_error !== "undefined"){
+    res.status(500);
+    res.end("Error: "+global.mongo_error);
+    return;
+  }
+  wikis.allWiki(function (err, wikis) {
+    if (err) {
+      return err;
+    }
+    res.end(JSON.stringify(wikis));
   })
 });
 

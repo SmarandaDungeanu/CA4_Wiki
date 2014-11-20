@@ -1,7 +1,39 @@
-<p>This is the partial for view 3.</p>
-<p>Data is fetched from a REST service, connected to MongoDB </p>
-<ul>
-  <p style="color: red">{{error}}</p>
-  <li ng-repeat="user in users"> {{user.userName}} {{user.email}} </li>
-</ul>
-</p>
+<p> Search: <input type="search" ng-model="categoryfilter" placeholder="Category"></p>
+<!--<accordion close-others="true">-->
+  <!--<accordion-group heading={{category}} ng-repeat="category in categories track by $index | filter:categoryfilter">-->
+
+<!--</accordion-group>-->
+<!--</accordion>-->
+<div class="btn-group-justified">
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button" ng-model="categoryfilter">A</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button" ng-model="categoryfilter">B</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">C</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">D</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">E</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">F</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">G</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">H</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">I</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">J</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">K</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">L</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">M</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">N</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">O</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">P</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">Q</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">R</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">S</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">T</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">U</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">V</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">W</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">X</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">Y</label>
+  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">Z</label>
+</div>
+<table class="table table-hover table-striped" ng-repeat="category in categories | filter: categoryfilter">
+  <tr>
+    <td>{{category}}</td>
+  </tr>
+</table>

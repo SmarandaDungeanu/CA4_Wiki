@@ -20,6 +20,16 @@ function findWiki(searchString, callback){
         })
 }
 
+function allWiki(callback){
+    model.WikiModel.find().select('title abstract')
+        .exec(function(err, wikis){
+            if(err){
+                return callback(err);
+            }
+            callback(null, wikis);
+        })
+}
+
 function getCategories(callback) {
     model.WikiModel.distinct('categories')
         .exec(function (err, categories) {
@@ -45,5 +55,6 @@ module.exports = {
     getWiki: getWiki,
     getCategories: getCategories,
     findWiki: findWiki,
-    getWikisWithCategory: getWikisWithCategory
+    getWikisWithCategory: getWikisWithCategory,
+    allWiki: allWiki
 }
