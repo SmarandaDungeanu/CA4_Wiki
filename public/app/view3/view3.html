@@ -1,39 +1,29 @@
 <p> Search: <input type="search" ng-model="categoryfilter" placeholder="Category"></p>
-<!--<accordion close-others="true">-->
-  <!--<accordion-group heading={{category}} ng-repeat="category in categories track by $index | filter:categoryfilter">-->
 
-<!--</accordion-group>-->
-<!--</accordion>-->
-<div class="btn-group-justified">
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button" ng-model="categoryfilter">A</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button" ng-model="categoryfilter">B</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">C</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">D</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">E</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">F</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">G</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">H</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">I</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">J</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">K</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">L</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">M</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">N</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">O</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">P</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">Q</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">R</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">S</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">T</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">U</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">V</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">W</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'" role="button">X</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'" role="button">Y</label>
-  <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'" role="button">Z</label>
+
+<div class="btn-group" ng-repeat="letter in alphabet" class="col-md-12">
+  <label class="btn btn-primary" ng-model="radioModel" ng-click="showCategoriesWithLetter(letter)">{{letter}}</label>
 </div>
-<table class="table table-hover table-striped" ng-repeat="category in categories | filter: categoryfilter">
-  <tr>
-    <td>{{category}}</td>
-  </tr>
-</table>
+
+<accordion close-others="true">
+  <accordion-group heading={{category}} ng-click="getTtitlesForCategory(category)" ng-repeat="category in filteredCategories | filter:categoryfilter">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <td><b>Titles</b></td>
+      </tr>
+      </thead>
+      <tbody ng-repeat="title in titles">
+        <tr >
+          <td>{{title.title}}</td>
+        </tr>
+      </tbody>
+    </table>
+</accordion-group>
+</accordion>
+
+<pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage"></pagination>
+<script>
+
+</script>

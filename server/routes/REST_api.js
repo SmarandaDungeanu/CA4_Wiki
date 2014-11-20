@@ -36,7 +36,7 @@ router.get('/title/:title', function(req, res) {
   })
 });
 
-router.get('category/:category', function(req, res) {
+router.get('/categories/:category', function(req, res) {
   if(typeof global.mongo_error !== "undefined"){
     res.status(500);
     res.end("Error: "+global.mongo_error);
@@ -46,6 +46,8 @@ router.get('category/:category', function(req, res) {
     if (err) {
       return err;
     }
+    console.log(wikis.length);
+    res.header("Content-type", "application/json");
     res.end(JSON.stringify(wikis));
   })
 });
