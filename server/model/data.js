@@ -47,6 +47,7 @@ function getWikisWithCategory(category, callback){
             if (err) {
                 return callback(err);
             }
+            console.log("mergi");
             callback(null, wikis);
         })
 }

@@ -55,7 +55,7 @@ angular.module('myAppRename.directives', []).
         template: '<ul>'+
            '<input type="search" ng-model="wikiSearch" placeholder="Title">'+
            '<button class="btn btn-primary" ng-click="setWiki(wikiSearch)">Search</button>'+
-            '<ul ng-repeat="wiki in wikis">'+
+            '<ul ng-repeat="wiki in filteredWikis">'+
             '<li id="{{wiki.title}}" ng-mouseover="show=true" ng-mouseleave="show=false"><a href="#/view2/{{wiki.title}}">{{wiki.title}}</a></li>'+
             '<ul>'+
             '<li ng-show="show">{{wiki.abstract}}</li>'+

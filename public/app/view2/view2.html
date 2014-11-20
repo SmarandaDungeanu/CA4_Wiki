@@ -1,14 +1,4 @@
 <p style="color: red">{{error}}</p>
 <div wiki-list></div>
 
-
-
-Showing of 'checkmark" filter:
-  True: {{true | checkmark}}, False {{false | checkmark}}
-  <br/>
-  <p>{{infoFactory}}</p>
-  <p>{{infoService}}</p>
-  <br/>
-  The links below are inserted via a custom directive:
-  <div angular-links></div>
-</p>
+<pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage" ng-show="showNow"></pagination>
