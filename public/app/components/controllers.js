@@ -95,7 +95,7 @@ angular.module('myAppRename.controllers', [ 'ui.bootstrap']).
                             end = begin + $scope.itemsPerPage;
                         $scope.filteredCategories = $scope.categories.slice(begin, end);
                     });
-                }
+                };
 
                 $scope.getTitlesForCategory = function(category){
                     $http({
@@ -107,10 +107,10 @@ angular.module('myAppRename.controllers', [ 'ui.bootstrap']).
                             console.log(data);
                         }).
                         error(function (data, status, headers, config) {
-                            $scope.error = data;
+                            $scope.titles = data;
                         });
 
-                }
+                };
 
             })
             .error(function (data, status, headers, config) {
