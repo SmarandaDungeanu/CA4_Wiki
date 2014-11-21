@@ -6,7 +6,7 @@
 </div>
 
 <accordion close-others="true">
-  <accordion-group heading={{category}} ng-click="getTtitlesForCategory(category)" ng-repeat="category in filteredCategories | filter:categoryfilter">
+  <accordion-group heading={{category}}   ng-click="getTitlesForCategory(category)" ng-repeat="category in filteredCategories | filter:categoryfilter">
 
     <table class="table">
       <thead>
@@ -14,8 +14,8 @@
         <td><b>Titles</b></td>
       </tr>
       </thead>
-      <tbody ng-repeat="title in titles">
-        <tr >
+      <tbody  ng-repeat="title in titles">
+        <tr>
           <td>{{title.title}}</td>
         </tr>
       </tbody>
