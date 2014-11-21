@@ -2,14 +2,15 @@ describe('myAppRename.factories', function () {
 
   beforeEach(module('myAppRename.factories'));
 
-  describe('InfoFactory', function () {
-    var infoFactory;
-    beforeEach(inject(function (_InfoFactory_) {
-      infoFactory = _InfoFactory_;
+  describe('Wikis', function () {
+    var wikiFactory;
+    beforeEach(inject(function (Wikis) {
+      wikiFactory = Wikis;
     }));
 
-    it('Should be Hello World from a Factory', function () {
-      expect(infoFactory.getInfo()).toBe("Hello World from a Factory");
+    it('Should be undefined for the factory', function () {
+      expect(wikiFactory.getInfo()).toBeUndefined();
+
     });
   });
 
