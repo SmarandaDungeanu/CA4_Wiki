@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ExpressAngularSeed.iml" filepath="$PROJECT_DIR$/.idea/ExpressAngularSeed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CA4_Wiki.iml" filepath="$PROJECT_DIR$/.idea/CA4_Wiki.iml" />
     </modules>
   </component>
 </project>
+

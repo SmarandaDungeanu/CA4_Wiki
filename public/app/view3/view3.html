@@ -1,9 +1,11 @@
+
+<nav class="navbar navbar-" role="navigation">
 <p> Search: <input type="search" ng-model="categoryfilter" placeholder="Category"></p>
 
-
-<div class="btn-group" ng-repeat="letter in alphabet" class="col-md-12">
-  <label class="btn btn-primary" ng-model="radioModel" ng-click="showCategoriesWithLetter(letter)">{{letter}}</label>
-</div>
+    <div class="btn-group" ng-repeat="letter in alphabet" class="col-md-12">
+    <label class="btn btn-primary" ng-model="radioModel" ng-click="showCategoriesWithLetter(letter)">{{letter}}</label>
+    </div>
+</nav>
 
 <accordion close-others="true">
   <accordion-group heading={{category}}   ng-click="getTitlesForCategory(category)" ng-repeat="category in filteredCategories | filter:categoryfilter">
