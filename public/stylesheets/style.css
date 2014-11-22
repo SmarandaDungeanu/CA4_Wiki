@@ -2,6 +2,15 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.subnav-fixed{
+  padding-top: 20px;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+#categoryList{
+  padding-top: 100px;
+}
 
 a {
   color: #00B7FF;
